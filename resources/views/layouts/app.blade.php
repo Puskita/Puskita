@@ -6,6 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/scripts.js"></script>
     <title>Puskita</title>
 </head>
 <body>
@@ -15,31 +16,78 @@
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
       <div class="position-sticky">
         <div class="list-group list-group-flush mx-3 mt-4">
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
-          </a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
-            <i class="fas fa-chart-area fa-fw me-3"></i><span>Webiste traffic</span>
-          </a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-            <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
-          </a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-globe fa-fw me-3"></i><span>International</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-building fa-fw me-3"></i><span>Partners</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-calendar fa-fw me-3"></i><span>Calendar</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-users fa-fw me-3"></i><span>Users</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a>
+            <ul class="list-unstyled">
+                <li class="mb-3">
+                    <a href="#" class="text-decoration-none fw-bold text-dark" onclick="setActive(this)">Dashboard</a>
+                </li>
+                <li class="mb-3">
+                    <a href="#" class="text-decoration-none fw-bold text-dark dropdown-toggle" id="dropdownFarmasi" data-bs-toggle="collapse" data-bs-target="#pasienMenu" aria-expanded="false" onclick="setActive(this)">
+                        Pendaftaran Pasien
+                    </a>
+                    <ul class="collapse list-unstyled ps-3" id="pasienMenu">
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Data Diri Pasien</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Jadwal Dokter</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Bukti Registrasi</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Registrasi</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="mb-3">
+                    <a href="#" class="text-decoration-none fw-bold text-dark" onclick="setActive(this)">Informasi Pasien</a>
+                </li>
+                <li class="mb-3">
+                    <a href="#" class="text-decoration-none fw-bold text-dark dropdown-toggle" id="dropdownFarmasi" data-bs-toggle="collapse" data-bs-target="#farmasiMenu" aria-expanded="false" onclick="setActive(this)">
+                        Farmasi
+                    </a>
+                    <ul class="collapse list-unstyled ps-3" id="farmasiMenu">
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Pelayanan Obat</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Daftar Obat</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Penambahan Obat</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="mb-3">
+                    <a href="#" class="text-decoration-none fw-bold text-dark dropdown-toggle" id="dropdownFarmasi" data-bs-toggle="collapse" data-bs-target="#kasirMenu" aria-expanded="false" onclick="setActive(this)">
+                        Kasir
+                    </a>
+                    <ul class="collapse list-unstyled ps-3" id="kasirMenu">
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Bukti Pembayaran</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="mb-3">
+                    <a href="#" class="text-decoration-none fw-bold text-dark" onclick="setActive(this)">Manajemen</a>
+                </li>
+                <li>
+                    <a href="#" class="text-decoration-none fw-bold text-dark dropdown-toggle" id="dropdownFarmasi" data-bs-toggle="collapse" data-bs-target="#dokterMenu" aria-expanded="false" onclick="setActive(this)">
+                        Dokter
+                    </a>
+                    <ul class="collapse list-unstyled ps-3" id="dokterMenu">
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Catatan Keluhan Pasien</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Resep Obat</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Riwayat Pemeriksaan</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
       </div>
     </nav>
