@@ -5,81 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <title>Puskita</title>
-    <style>
-        .sidebar {
-            min-height: 100vh;
-            background-color: #2ecc71;
-            color: white;
-            padding-top: 15px;
-        }
-        .sidebar a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            display: block;
-        }
-        .sidebar a:hover {
-            background-color: #27ae60;
-        }
-        .header {
-            background-color: #2ecc71;
-            height: 60px;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-        .main-content {
-            padding: 20px;
-        }
-    </style>
 </head>
 <body>
-    <div class="container-fluid">
-    <div class="row">
-        <!-- Sidebar -->
-        <nav class="col-md-2 sidebar">
-            <h3 class="text-center">PUSKITA</h3>
-            <a href="#">Dashboard</a>
-            <a href="#">Pendaftaran Pasien</a>
-            <a href="#">Informasi Pasien</a>
-            <a href="#pelayananObat" class="dropdown-toggle" data-bs-toggle="collapse">Farmasi</a>
-                <ul class="collapse list-style-none" id="pelayananObat">
-                    <li><a href="#">Pelayanan Obat</a></li>
-                    <li><a href="#">Daftar Obat</a></li>
-                    <li><a href="#">Penambahan Obat</a></li>
-                </ul>
-            <a href="#">Kasir</a>
-            <a href="#manajemen" class="dropdown-toggle" data-bs-toggle="collapse">Manajemen</a>
-                <ul class="collapse" id="manajemen">
-                    <li><a href="#">Catatan Diagnosa Pasien</a></li>
-                    <li><a href="#">Input Resep Obat</a></li>
-                    <li><a href="#">Input Jadwal Dokter</a></li>
-                </ul>
-            <a href="#dokter" class="dropdown-toggle" data-bs-toggle="collapse">Dokter</a>
-                <ul class="collapse" id="dokter">
-                    <li><a href="#">Catatan Keluhan Pasien</a></li>
-                    <li><a href="resep_obat.php">Resep Obat</a></li>
-                    <li><a href="riwayatpem.php">Riwayat Pemeriksaan</a></li>
-                </ul>
-        </nav>
-
-        <!-- Main content -->
-        <div class="col-md-10">
-            <div class="header">
-                <h5>Admin</h5>
-                <img src="https://via.placeholder.com/50" alt="profile" class="rounded-circle">
-            </div>
-
-            <div class="main-content bg-white mt-4 p-5">
-                <!-- Placeholder for content -->
-                @yield('content')
-            </div>
+    <!--Main Navigation-->
+<header>
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+      <div class="position-sticky">
+        <div class="list-group list-group-flush mx-3 mt-4">
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
+            <i class="fas fa-chart-area fa-fw me-3"></i><span>Webiste traffic</span>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple">
+            <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a>
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-globe fa-fw me-3"></i><span>International</span></a>
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-building fa-fw me-3"></i><span>Partners</span></a>
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-calendar fa-fw me-3"></i><span>Calendar</span></a>
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-users fa-fw me-3"></i><span>Users</span></a>
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a>
         </div>
+      </div>
+    </nav>
+    <!-- Sidebar -->
+  
+    <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+        <!-- Toggle button -->
+        <button data-mdb-button-init class="navbar-toggler" type="button" data-mdb-collapse-init data-mdb-target="#sidebarMenu"
+          aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+  
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">
+          <p class="h3 text-white">Puskita</p>
+        </a>
+      </div>
+      <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+  </header>
+  <!--Main Navigation-->
+  
+  <!--Main layout-->
+  <main style="margin-top: 58px;">
+    <div class="container pt-4">
+        @yield('content')
     </div>
-</div>
-
+  </main>
+  <!--Main layout-->
 </body>
 </html>
