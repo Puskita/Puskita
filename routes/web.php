@@ -1,15 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\pendaftaranPasienController;
 
 Route::get('/Dashboard', function () {
     return view('dashboard');
 });
 
 Route::get('/ResepObat', function () {
-    return view('resepobat');
+    return view('Dokter.resepobat');
 });
 
 Route::get('/JadwalDokter', function () {
-    return view('jadwaldokter');
+    return view('Petugas.jadwaldokter');
 });
+
+
+// Resource route for handling other CRUD operations
+Route::resource('/pendaftaranPasien', pendaftaranPasienController::class);
