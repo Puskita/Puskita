@@ -55,3 +55,39 @@ body {
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
     }
+
+    .main-content {
+        margin: 20px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .patient-info {
+        margin-bottom: 20px;
+    }
+    .patient-info label {
+        display: inline-block;
+        width: 150px;
+    }
+    .table-container {
+        margin-top: 20px;
+    }
+    .form-control {
+        background-color: #eaeaea;
+        border: none;
+    }
+    .btn-save, .btn-back {
+        margin-top: 20px;
+        padding: 10px 20px;
+    }
+    .btn-save {
+        background-color: #2ecc71;
+        color: white;
+        border: none;
+    }
+    .btn-back {
+        background-color: #ccc;
+        color: black;
+        border: none;
+    }
