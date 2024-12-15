@@ -3,36 +3,36 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1>Pendaftaran</h1>
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="{{ route('pendaftaranPasien.create') }}" class="btn btn-primary">Tambah</a>
-                </div>
+            <h1>Data Pasien</h1>
+            <div class="d-flex justify-content-end mb-3">
+                <a href="{{ route('dataPasien.create') }}" class="btn btn-success">Tambah Data Pasien</a>
             </div>
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>No Registrasi</th>
                         <th>Nama</th>
                         <th>Alamat</th>
+                        <th>Wilayah</th>
                         <th>No Telepon</th>
                         <th>Jenis Kelamin</th>
+                        <th>Tanggal Lahir</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($pendaftaranPasien as $p)
+                    @foreach($dataPasien as $data)
                     <tr>
-                        <td>{{ $p->id }}</td>
-                        <td>{{ $p->noRegistrasi }}</td>
-                        <td>{{ $p->namaLengkap }}</td>
-                        <td>{{ $p->alamat }}</td>
-                        <td>{{ $p->noTelp }}</td>
-                        <td>{{ $p->jenisKelamin }}</td>
+                        <td>{{ $data->id }}</td>
+                        <td>{{ $data->namaLengkap }}</td>
+                        <td>{{ $data->alamat }}</td>
+                        <td>{{ $data->wilayah }}</td>
+                        <td>{{ $data->noTelp }}</td>
+                        <td>{{ $data->jenisKelamin }}</td>
+                        <td>{{ $data->tanggalLahir }}</td>
                         <td>
-                            <a href="{{ route('pendaftaranPasien.edit', $p->id) }}" class="btn btn-warning">Edit</a>
-                            <form action="{{ route('pendaftaranPasien.destroy', ['pendaftaranPasien' => $p->id]) }}" method="post" style="display:inline;">
+                            <a href="{{ route('dataPasien.edit', $data->id) }}" class="btn btn-warning">Edit</a>
+                            <form action="{{ route('dataPasien.destroy', ['dataPasien' => $data->id]) }}" method="post" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Hapus</button>
