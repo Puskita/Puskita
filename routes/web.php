@@ -10,18 +10,9 @@ use App\Http\Controllers\keluhanPasienController;
 use App\Http\Controllers\resepObatController;
 use App\Http\Controllers\riwayatPemeriksaanController;
 
-Route::get('/Dashboard', function () {
+Route::get('/', function () {
     return view('dashboard');
 });
-
-Route::get('/ResepObat', function () {
-    return view('Dokter.resepobat');
-});
-
-Route::get('/JadwalDokter', function () {
-    return view('Petugas.jadwaldokter');
-});
-
 
 // Resource route for handling other CRUD operations
 Route::resource('/pendaftaranPasien', pendaftaranPasienController::class);
