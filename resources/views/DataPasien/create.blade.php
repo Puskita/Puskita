@@ -1,7 +1,10 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <form method="POST" action="{{ route('pendaftaranPasien.store') }}">
+    <div class="mb-3">
+        <h1>Tambah Data Pasien</h1>
+    </div>
+    <form method="POST" action="{{ route('dataPasien.store') }}">
         @csrf
         <div class="row">
             <!-- Kolom Kiri -->
@@ -154,13 +157,9 @@
                     <label for="pekerjaan" class="form-label-sm">Pekerjaan</label>
                     <input type="text" class="form-control" id="pekerjaan" name="pekerjaan">
                 </div>
-                <div class="mb-3">
-                    <label for="noRegistrasi" class="form-label">No. Registrasi</label>
-                    <input type="text" class="form-control" id="noRegistrasi" name="noRegistrasi" value="{{ old('noRegistrasi', $noRegistrasi) }}" readonly>
-                </div>
                 <div class="d-flex justify-content-between">
-                    <a href="{{ route('pendaftaranPasien.index') }}" class="btn btn-secondary">Cancel</a>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="{{ route('dataPasien.index') }}" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-success">Submit</button>
                 </div>
             </div>
         </div>

@@ -18,29 +18,28 @@
         <div class="list-group list-group-flush mx-3 mt-4">
             <ul class="list-unstyled">
                 <li class="mb-3">
-                    <a href="#" class="text-decoration-none fw-bold text-dark" onclick="setActive(this)">Dashboard</a>
+                    <a href="/" class="text-decoration-none fw-bold text-dark" onclick="setActive(this)">Dashboard</a>
                 </li>
                 <li class="mb-3">
-                    <a href="#" class="text-decoration-none fw-bold text-dark dropdown-toggle" id="dropdownFarmasi" data-bs-toggle="collapse" data-bs-target="#pasienMenu" aria-expanded="false" onclick="setActive(this)">
+                    <a href="#" class="text-decoration-none fw-bold text-dark dropdown-toggle" id="dropdownFarmasi" data-bs-toggle="collapse" data-bs-target="#pasienRegisMenu" aria-expanded="false" onclick="setActive(this)">
                         Pendaftaran Pasien
                     </a>
-                    <ul class="collapse list-unstyled ps-3" id="pasienMenu">
+                    <ul class="collapse list-unstyled ps-3" id="pasienRegisMenu">
                         <li class="mb-2">
-                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Data Diri Pasien</a>
+                            <a href="{{ route('pendaftaranPasien.create') }}" class="text-decoration-none text-secondary" onclick="setActive(this)">Registrasi</a>
                         </li>
                         <li class="mb-2">
-                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Jadwal Dokter</a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Bukti Registrasi</a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="/pendaftaranPasien" class="text-decoration-none text-secondary" onclick="setActive(this)">Registrasi</a>
+                            <a href="/pendaftaranPasien" class="text-decoration-none text-secondary" onclick="setActive(this)">Bukti Registrasi</a>
                         </li>
                     </ul>
                 </li>
                 <li class="mb-3">
-                    <a href="#" class="text-decoration-none fw-bold text-dark" onclick="setActive(this)">Informasi Pasien</a>
+                    <a href="#" class="text-decoration-none fw-bold text-dark dropdown-toggle" id="dropdownFarmasi" data-bs-toggle="collapse" data-bs-target="#pasienMenu" aria-expanded="false" onclick="setActive(this)">Informasi Pasien</a>
+                    <ul class="collapse list-unstyled ps-3" id="pasienMenu">
+                        <li class="mb-2">
+                            <a href="/dataPasien" class="text-decoration-none text-secondary" onclick="setActive(this)">Data Diri Pasien</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="mb-3">
                     <a href="#" class="text-decoration-none fw-bold text-dark dropdown-toggle" id="dropdownFarmasi" data-bs-toggle="collapse" data-bs-target="#farmasiMenu" aria-expanded="false" onclick="setActive(this)">
@@ -48,13 +47,13 @@
                     </a>
                     <ul class="collapse list-unstyled ps-3" id="farmasiMenu">
                         <li class="mb-2">
-                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Pelayanan Obat</a>
+                            <a href="/resepObat" class="text-decoration-none text-secondary" onclick="setActive(this)">Pelayanan Obat</a>
                         </li>
                         <li class="mb-2">
-                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Daftar Obat</a>
+                            <a href="/dataObat" class="text-decoration-none text-secondary" onclick="setActive(this)">Daftar Obat</a>
                         </li>
                         <li class="mb-2">
-                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Penambahan Obat</a>
+                            <a href="{{ route('dataObat.create') }}" class="text-decoration-none text-secondary" onclick="setActive(this)">Penambahan Obat</a>
                         </li>
                     </ul>
                 </li>
@@ -69,7 +68,15 @@
                     </ul>
                 </li>
                 <li class="mb-3">
-                    <a href="#" class="text-decoration-none fw-bold text-dark" onclick="setActive(this)">Manajemen</a>
+                    <a href="#" class="text-decoration-none fw-bold text-dark dropdown-toggle" id="dropdownFarmasi" data-bs-toggle="collapse" data-bs-target="#manajemenMenu" aria-expanded="false" onclick="setActive(this)">Manajemen</a>
+                    <ul class="collapse list-unstyled ps-3" id="manajemenMenu">
+                        <li class="mb-2">
+                            <a href="/dataDokter" class="text-decoration-none text-secondary" onclick="setActive(this)">Data Dokter</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/jadwalDokter" class="text-decoration-none text-secondary" onclick="setActive(this)">Jadwal Dokter</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#" class="text-decoration-none fw-bold text-dark dropdown-toggle" id="dropdownFarmasi" data-bs-toggle="collapse" data-bs-target="#dokterMenu" aria-expanded="false" onclick="setActive(this)">
@@ -77,13 +84,13 @@
                     </a>
                     <ul class="collapse list-unstyled ps-3" id="dokterMenu">
                         <li class="mb-2">
-                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Catatan Keluhan Pasien</a>
+                            <a href="{{ route('keluhanPasien.create') }}" class="text-decoration-none text-secondary" onclick="setActive(this)">Catatan Keluhan Pasien</a>
                         </li>
                         <li class="mb-2">
-                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Resep Obat</a>
+                            <a href="{{ route('resepObat.create') }}" class="text-decoration-none text-secondary" onclick="setActive(this)">Resep Obat</a>
                         </li>
                         <li class="mb-2">
-                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Riwayat Pemeriksaan</a>
+                            <a href="/riwayatPemeriksaan" class="text-decoration-none text-secondary" onclick="setActive(this)">Riwayat Pemeriksaan</a>
                         </li>
                     </ul>
                 </li>

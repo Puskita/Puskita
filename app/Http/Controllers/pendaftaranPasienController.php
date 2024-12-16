@@ -4,66 +4,68 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\pendaftaranPasien;
+use App\Models\dataPasien;
+use App\Models\jadwalDokter;
+use Barryvdh\DomPDF\Facade\PDF;
 
 class pendaftaranPasienController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $pendaftaranPasien = pendaftaranPasien::all();
-        return view('Petugas.indexRegisPasien', compact('pendaftaranPasien'));
+        // $pendaftaranPasien = pendaftaranPasien::all();
+
+        $query = pendaftaranPasien::query();
+
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where('noRegistrasi', 'like', "%{$search}%")
+                  ->orWhere('namaLengkap', 'like', "%{$search}%");
+        }
+
+        $pendaftaranPasien = $query->get();
+
+        return view('RegistrasiPasien.index', compact('pendaftaranPasien'));
     }
 
     public function create()
     {
+        $dataPasien = DataPasien::all();
+        $jadwalDokter = JadwalDokter::with('dokter')->get();
         $noRegistrasi = 'REG-' . strtoupper(uniqid());
-        return view('Petugas.createRegisPasien', compact('noRegistrasi'));
+
+        return view('RegistrasiPasien.create', compact('noRegistrasi', 'dataPasien', 'jadwalDokter'));
     }
+
 
     public function store(Request $request)
     {
         // Validasi input
         $validated = $request->validate([
-            'nik' => 'required|numeric',
-            'namaLengkap' => 'required|string|max:255',
-            'tanggalLahir' => 'required|date',
-            'tempatLahir' => 'required|string|max:255',
-            'jenisKelamin' => 'required|string',
-            'kebangsaan' => 'required|string',
-            'alamat' => 'required|string',
-            'wilayah' => 'required|string',
-            'kodePos' => 'required|numeric',
-            'noTelp' => 'required|string',
-            'goldar' => 'nullable|string',
-            'agama' => 'nullable|string',
-            'status' => 'nullable|string',
-            'pekerjaan' => 'nullable|string',
+            'noRegistrasi' => 'required|string',
+            'pasien_id' => 'required|exists:data_pasiens,id',
+            'jadwal_id' => 'required|exists:jadwal_dokters,id',
+            'jenisLayanan' => 'nullable|string|in:UMUM,GIGI',
         ]);
 
-        // Simpan data ke database (contoh: model `PendaftaranPasien`)
-        PendaftaranPasien::create($validated);
+        // Menyimpan data pendaftaran pasien
+        PendaftaranPasien::create([
+            'noRegistrasi' => $validated['noRegistrasi'],
+            'pasien_id' => $validated['pasien_id'],
+            'jadwal_id' => $validated['jadwal_id'],
+            'jenisLayanan' => $validated['jenisLayanan'],
+        ]);
 
-        // Redirect ke halaman lain dengan pesan sukses
         return redirect()->route('pendaftaranPasien.index')->with('success', 'Data berhasil disimpan.');
     }
 
-
-    public function edit($id)
-    {
-        $pendaftaranPasien = pendaftaranPasien::find($id);
-        return view('Petugas.editRegisPasien', compact('pendaftaranPasien'));
+    public function show($id){
+        $pendaftaranPasien = PendaftaranPasien::findOrFail($id);
+        return view('RegistrasiPasien.show', compact('pendaftaranPasien'));
     }
 
-    public function update(Request $request, $id)
-    {
-        $pendaftaranPasien = pendaftaranPasien::find($id);
-        $pendaftaranPasien->update($request->all());
-        return redirect()->route('Petugas.indexRegisPasien');
-    }
-
-    public function destroy($id)
-    {
-        $pendaftaranPasien = pendaftaranPasien::find($id);
-        $pendaftaranPasien->delete();
-        return redirect()->route('pendaftaranPasien.index')->with('success', 'Data berhasil dihapus.');
+    public function downloadPDF($id){
+        $pendaftaranPasien = pendaftaranPasien::findOrFail($id);
+        $pdf = PDF::loadView('RegistrasiPasien.pdf', compact('pendaftaranPasien'));
+        return $pdf->download('registrasi-pasien.pdf');
     }
 }
