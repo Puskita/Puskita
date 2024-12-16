@@ -43,11 +43,6 @@
                 </td>
                 <td>
                     <a href="{{ route('pendaftaranPasien.show', $registrasi->id) }}" class="btn btn-warning btn-sm">Detail</a>
-                    <form action="{{ route('pendaftaranPasien.destroy', $registrasi->id) }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                    </form>
                 </td>
             </tr>
             @endforeach

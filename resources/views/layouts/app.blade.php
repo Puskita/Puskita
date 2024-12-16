@@ -63,7 +63,7 @@
                     </a>
                     <ul class="collapse list-unstyled ps-3" id="kasirMenu">
                         <li class="mb-2">
-                            <a href="#" class="text-decoration-none text-secondary" onclick="setActive(this)">Bukti Pembayaran</a>
+                            <a href="/buktiPembayaran" class="text-decoration-none text-secondary" onclick="setActive(this)">Bukti Pembayaran</a>
                         </li>
                     </ul>
                 </li>

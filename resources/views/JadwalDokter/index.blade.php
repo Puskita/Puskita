@@ -2,13 +2,15 @@
 
 @section('content')
 <h1>Daftar Jadwal Dokter</h1>
-<a href="{{ route('jadwalDokter.create') }}" class="btn btn-primary mb-3">Tambah Jadwal</a>
-
+<div class="d-flex justify-content-end">
+    <a href="{{ route('jadwalDokter.create') }}" class="btn btn-success mb-3">Tambah Jadwal</a>
+</div>
 <table class="table">
     <thead>
         <tr>
             <th>No</th>
             <th>Nama Dokter</th>
+            <th>Spesialis</th>
             <th>Jadwal</th>
             <th>Ruangan</th>
             <th>Aksi</th>
@@ -19,6 +21,7 @@
         <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $jadwal->dokter->namaDokter }}</td>
+            <td>{{ $jadwal->dokter->spesialis }}</td>
             <td>{{ $jadwal->tanggalMulai }} - {{ $jadwal->tanggalSelesai }}</td>
             <td>{{ $jadwal->ruangan }}</td>
             <td>

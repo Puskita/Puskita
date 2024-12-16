@@ -8,6 +8,7 @@
             <tr>
                 <th>No</th>
                 <th>No Registrasi</th>
+                <th>NIK</th>
                 <th>Nama Pasien</th>
                 <th>Nama Dokter</th>
                 <th>Nama Obat</th>
@@ -21,6 +22,7 @@
                 <tr>
                     <td>{{ $index + 1 }}</td>
                     <td>{{ $resep->keluhan->pendaftaran->noRegistrasi ?? '-' }}</td>
+                    <td>{{ $resep->keluhan->pendaftaran->dataPasien->nik ?? '-' }}</td>
                     <td>{{ $resep->keluhan->pendaftaran->dataPasien->namaLengkap ?? '-' }}</td>
                     <td>{{ $resep->dokter->namaDokter ?? '-' }}</td>
                     <td>{{ $resep->obat->namaObat ?? '-' }}</td>

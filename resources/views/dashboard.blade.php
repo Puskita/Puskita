@@ -1,4 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<p>Guspo</p>
+<h1>Dashboard</h1>
+<h2>Selamat datang di Sistem Informasi PUSKITA</h2>
 @endsection

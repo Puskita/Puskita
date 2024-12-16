@@ -11,7 +11,16 @@
     </div>
     <div class="mb-3">
         <label for="spesialis" class="form-label">Spesialis</label>
-        <input type="text" class="form-control" id="spesialis" name="spesialis" value="{{ $dokter->spesialis }}" required>
+        <div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="umum" name="spesialis" value="UMUM" {{ old('spesialis', $dokter->spesialis) == 'UMUM' ? 'checked' : '' }}>
+                <label class="form-check-label" for="umum">UMUM</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="gigi" name="spesialis" value="GIGI" {{ old('spesialis', $dokter->spesialis) == 'GIGI' ? 'checked' : '' }}>
+                <label class="form-check-label" for="gigi">GIGI</label>
+            </div>
+        </div>
     </div>
     <a href="{{ route('dataDokter.index') }}" class="btn btn-secondary">Kembali</a>
     <button type="submit" class="btn btn-success">Simpan</button>
