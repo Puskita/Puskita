@@ -12,14 +12,14 @@ class pendaftaranPasienController extends Controller
 {
     public function index(Request $request)
     {
-        // $pendaftaranPasien = pendaftaranPasien::all();
-
-        $query = pendaftaranPasien::query();
+        $query = pendaftaranPasien::with('dataPasien'); 
 
         if ($request->has('search')) {
             $search = $request->input('search');
             $query->where('noRegistrasi', 'like', "%{$search}%")
-                  ->orWhere('namaLengkap', 'like', "%{$search}%");
+                ->orWhereHas('dataPasien', function ($q) use ($search) {
+                    $q->where('namaLengkap', 'like', "%{$search}%");
+                });
         }
 
         $pendaftaranPasien = $query->get();
