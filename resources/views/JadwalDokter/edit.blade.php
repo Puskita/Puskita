@@ -7,14 +7,10 @@
     @method('PUT')
     <div class="mb-3">
         <label for="dokter_id" class="form-label">Dokter</label>
-        <select class="form-select" id="dokter_id" name="dokter_id">
-            @foreach($dataDokter as $dokter)
-            <option value="{{ $dokter->id }}" {{ $jadwal->dokter_id == $dokter->id ? 'selected' : '' }}>
-                {{ $dokter->namaDokter }} ({{ $dokter->spesialis }})
-            </option>
-            @endforeach
-        </select>
+        <input type="text" class="form-control" value="{{ $jadwal->dokter->namaDokter }} ({{ $jadwal->dokter->spesialis }})" readonly>
+        <input type="hidden" name="dokter_id" value="{{ $jadwal->dokter_id }}">
     </div>
+
     <div class="mb-3">
         <label for="tanggalMulai" class="form-label">Tanggal Mulai</label>
         <input type="date" class="form-control" id="tanggalMulai" name="tanggalMulai" value="{{ $jadwal->tanggalMulai }}" required>

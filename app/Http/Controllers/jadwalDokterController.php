@@ -45,7 +45,7 @@ class jadwalDokterController extends Controller
         $validated = $request->validate([
             'dokter_id' => 'required|exists:data_dokters,id',
             'tanggalMulai' => 'required|date|date_format:Y-m-d',
-            'tanggalSelsai' => 'required|date|date_format:Y-m-d|after:tanggalMulai',
+            'tanggalSelesai' => 'required|date|date_format:Y-m-d|after:tanggalMulai',
             'ruangan' => 'required|string|max:255',
         ]);
 
