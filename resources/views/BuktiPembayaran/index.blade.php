@@ -9,7 +9,6 @@
             {{ session('success') }}
         </div>
     @endif
-
     <table class="table table-bordered table-striped">
         <thead class="table-primary">
             <tr>
