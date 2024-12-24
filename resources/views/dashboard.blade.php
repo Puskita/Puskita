@@ -1,5 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<h1>Dashboard</h1>
-<h2>Selamat datang di Sistem Informasi PUSKITA</h2>
+<h4>Selamat Datang di Sistem PUSKITA</h4>
+<p>Halo, Tim Puskesmas! Mari bersama wujudkan pelayanan kesehatan yang cepat, tepat, dan ramah bagi masyarakat</p>
 @endsection
